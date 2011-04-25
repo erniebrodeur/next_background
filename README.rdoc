@@ -1,16 +1,16 @@
 = next_background
 
-Description goes here.
+Right now, this probably wouldn't do what you expect.  
 
-== Contributing to next_background
- 
-* Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
-* Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
-* Fork the project
-* Start a feature/bugfix branch
-* Commit and push until you are happy with your contribution
-* Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
-* Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
+I had two problems, 
+* Xfce4 does not span screens.
+* crontab only has minute accuracy.
+
+This script solves both of these problems with some creative linking.
+
+I took a directory of images that are 3800x1200 and used a convert like from image magic to split them.  This resulted in a ton of files ending in 0 or 1, (left and right).  
+
+The ruby script is pretty self explanatory after that.  Just sanity check a few files and relink every 10 seconds.
 
 == Copyright
 
