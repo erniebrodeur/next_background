@@ -1,17 +1,22 @@
 = next_background
 
-Right now, this probably wouldn't do what you expect.  
+Right now, this probably wouldn't do what you expect.
 
-I had two problems, 
+I had two problems,
 * Xfce4 does not span screens.
 * crontab only has minute accuracy.
 
 This script solves both of these problems with some creative linking.
 
-I took a directory of images that are 3800x1200 and used a convert like from image magic to split them.  This resulted in a ton of files ending in 0 or 1, (left and right).  
+I took a directory of images that are 3800x1200 and used a convert like from image magic to split them.  This resulted in a ton of files ending in 0 or 1, (left and right).
 
 The ruby script is pretty self explanatory after that.  Just sanity check a few files and relink every 10 seconds.
 
+== Notes
+
+for i in *.jpg; convert $i -crop 50%x100% +repage $i%d
+
+produced what I needed.
 == Copyright
 
 Copyright (c) 2011 Ernie Brodeur. See LICENSE.txt for
