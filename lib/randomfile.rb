@@ -34,6 +34,7 @@ module NextBackground
       @dir = dir
       # I'm sure I could do more checking here, but this should produce something most times.
       @files = Dir.glob("#{File.expand_path(dir)}/*")
+      next_file
       self
     end      
 

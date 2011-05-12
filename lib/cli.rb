@@ -23,12 +23,19 @@ module NextBackground
       end
 
       if @options.opts[:runonce]
-        puts 'runonce'
+        run_once
       end
 
       exit
-      # TODO: method this out.
-      %x[xfdesktop --reload]
+    end
+
+    #
+    # our run_once method is the primary 'setting' method, I have no better place to put it
+    # yet.
+    # TODO: refactor this somewhere better.
+    def run_once
+      @dir.set_link
+      #%x[xfdesktop --reload]
     end
   end
 end
