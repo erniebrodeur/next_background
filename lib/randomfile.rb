@@ -55,7 +55,7 @@ module NextBackground
     #
     # set our link to a generated random file.  It will try its best to produce a link, including
     # calling next_file if it has not been called yet.
-    def set_link
+    def set_link(set_next = true)
       if !@file
         next_file
       end
@@ -63,9 +63,13 @@ module NextBackground
       if !@link
         raise "Unable to continue, link is not configured."
       end
+      
       clean_link
       File.symlink @file, @link
+
+      if set_next
+        next_file
+      end
     end
   end
 end
-

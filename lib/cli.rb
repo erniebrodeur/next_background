@@ -6,9 +6,11 @@ module NextBackground
   class CLI
 
     def initialize
-      @dir = NextBackground::RandomFile.new
       @options = NextBackground::Options.new
-      @dir.link = "/home/ebrodeur/Pictures/test_link"
+      @daemon = NextBackground::Daemon.new(self)
+
+      @dir = NextBackground::RandomFile.new
+      @dir.link = "/home/ebrodeur/Pictures/single"
       @dir.dir = "/home/ebrodeur/Pictures/1920x1080"
     end
 
@@ -19,7 +21,7 @@ module NextBackground
       @options.parse
 
       if @options.opts[:daemon]
-        puts 'daemon'
+        @daemon.fork
       end
 
       if @options.opts[:runonce]
@@ -35,7 +37,7 @@ module NextBackground
     # TODO: refactor this somewhere better.
     def run_once
       @dir.set_link
-      #%x[xfdesktop --reload]
+      %x[xfdesktop --reload]
     end
   end
 end
