@@ -7,5 +7,5 @@ $LOAD_PATH.unshift lib_dir if File.directory?(lib_dir) && !$LOAD_PATH.include?(l
 
 require "next_background.rb"
 @app = NextBackground::CLI.new
+@app.run
 
-puts "end of next_background"

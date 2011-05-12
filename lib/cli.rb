@@ -2,7 +2,7 @@ module NextBackground
   #
   # This is the CLI code.  Any interaction with the command prompt will be done through
   # this class.  When executed from the command line, this class will also become responsible
-  # for managing the neccessary memory space and configuration options.
+  # for managing the neccessary memory space and configuration parser.
   class CLI
 
     def initialize
@@ -16,6 +16,8 @@ module NextBackground
     # This is the entry point for the application.  Once a CLI has been initialized, 
     # this method will run all logic and is effectively the main loop.
     def run
+      @options.parse
+
       if @options.opts[:daemon]
         puts 'daemon'
       end
