@@ -1,0 +1,11 @@
+#!/usr/bin/ruby
+require 'trollop'
+require 'daemons'
+
+lib_dir = File.join(File.dirname(__FILE__), '..', 'lib')
+$LOAD_PATH.unshift lib_dir if File.directory?(lib_dir) && !$LOAD_PATH.include?(lib_dir)
+
+require "next_background.rb"
+@app = NextBackground::CLI.new
+
+puts "end of next_background"
