@@ -39,7 +39,11 @@ module NextBackground
     #
     # pid
     def pid
-      open(pidfile).read
+      if File.exists? pidfile
+        open(pidfile).read
+      else
+        nil
+      end
     end
     #
     # The entry point for this class.  

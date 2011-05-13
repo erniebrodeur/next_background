@@ -21,13 +21,22 @@ module NextBackground
       @options.parse
  
       if @options.opts[:kill]
-        puts "kill"
+        if @daemon.pid
+          puts "killing #{@daemon.pid}"
+          %x[kill #{@daemon.pid}]
+        else
+          puts "next_background is not running."
+        end
       end
       if @options.opts[:pid]
         puts @daemon.pid
       end
       if @options.opts[:daemon]
-        @daemon.fork
+        if !@daemon.pid
+          @daemon.fork
+        else
+          puts "next_background is already running."
+        end
       end
 
       if @options.opts[:runonce]
