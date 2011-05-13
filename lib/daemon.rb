@@ -9,20 +9,21 @@ module NextBackground
   # daemon.fork
   class Daemon
     #
-    # a reference to our parent
-    attr_reader :parent
+    # our update method, this is what is called every X interval.
+    attr_accessor :update_method
 
     private
     #
     # our hash of options for daemon.  This has nothing tweakable in it at the moment.
     attr_reader :options
 
+    public
     #
     # Our options hash for daemons
     #
-    # our initalize requires that you feed it a parent object or it can't execute run_once.
-    def initialize(parent)
-      @parent = parent
+    # our initalize requires that you feed it a method to be called.
+    def initialize(update_method)
+      @update_method = update_method
       @options = {
         :app_name => "next_background",
         :dir_mode => :normal,
@@ -35,7 +36,7 @@ module NextBackground
     def fork
       Daemons.daemonize @options
       loop do
-        @parent.run_once
+        update_method.call
         sleep 10
       end
     end

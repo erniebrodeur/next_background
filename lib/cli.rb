@@ -7,7 +7,7 @@ module NextBackground
 
     def initialize
       @options = NextBackground::Options.new
-      @daemon = NextBackground::Daemon.new(self)
+      @daemon = NextBackground::Daemon.new(method(:run_once))
 
       @dir = NextBackground::RandomFile.new
       @dir.link = "/home/ebrodeur/Pictures/single"
