@@ -1,0 +1,24 @@
+= Release Notes:
+== 0.2.1
+* Added yardoc to the gem, currently can generate both yardoc and rdoc.
+* Added some simple specs, not really finished or cleaned up.
+
+=== cli.rb
+* added --kill, to kill the currently running daemon.
+* added --pid, to report the current pid (or nil) if none.
+
+=== daemon.rb
+* added a options hash to @daemon, for configuration purposes.
+* refactored @parent into a method call and changed how the daemon fires.
+* added methods to report the current pid file.
+
+
+== 0.2.0
+
+* mimics the behaviour of .1 perfectly. 
+* refactored into an oop model instead of a single file.
+* refactored to a single screen to continue development.
+
+== 0.1.0
+* works on dual screens for spanning monitors.
+* initial spike, a simple file to change a link every ten seconds and daemonize.

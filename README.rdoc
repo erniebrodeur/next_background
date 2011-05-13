@@ -1,22 +1,24 @@
 = next_background
-
-Right now, this probably wouldn't do what you expect.
-
-I had two problems,
-* Xfce4 does not span screens.
-* crontab only has minute accuracy.
-
-This script solves both of these problems with some creative linking.
-
-I took a directory of images that are 3800x1200 and used a convert like from image magic to split them.  This resulted in a ton of files ending in 0 or 1, (left and right).
-
-The ruby script is pretty self explanatory after that.  Just sanity check a few files and relink every 10 seconds.
+This gem is to offer a WM agnostic solution to changing the wallpaper, either via CLI or daemon.
 
 == Notes
 
-for i in *.jpg; convert $i -crop 50%x100% +repage $i%d
+At the moment this script has some severe limitations:
+* Hard coded values everywhere.
+* Limited command line options.
+* Very limited configuration
+* Only works on my system (see the first entry).
 
-produced what I needed.
+== Current
+The .2 branch is a functional branch, but is not what I would call a useful one.  Instead it works
+perfectly well on my desktop (and yours too if you modifiy a few values or wait for .3).
+
+== The Road .3
+The goal of .3 is to release a gem that can be executed with 'gem install next_background.'  
+
+As such I am not adding any real features until I can get the current ones properly spec'ed 
+and configurable.
+
 == Copyright
 
 Copyright (c) 2011 Ernie Brodeur. See LICENSE.txt for
