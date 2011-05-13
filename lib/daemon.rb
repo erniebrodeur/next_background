@@ -32,6 +32,16 @@ module NextBackground
     end
 
     #
+    # pidfile
+    def pidfile
+      File.expand_path("#{@options[:dir]}#{@options[:app_name]}.pid")
+    end
+    #
+    # pid
+    def pid
+      open(pidfile).read
+    end
+    #
     # The entry point for this class.  
     def fork
       Daemons.daemonize @options

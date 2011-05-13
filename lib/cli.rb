@@ -24,9 +24,7 @@ module NextBackground
         puts "kill"
       end
       if @options.opts[:pid]
-        require 'pry'
-        binding.pry
-        puts "pid"
+        puts @daemon.pid
       end
       if @options.opts[:daemon]
         @daemon.fork
