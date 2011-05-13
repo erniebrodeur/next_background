@@ -19,7 +19,15 @@ module NextBackground
     # this method will run all logic and is effectively the main loop.
     def run
       @options.parse
-
+ 
+      if @options.opts[:kill]
+        puts "kill"
+      end
+      if @options.opts[:pid]
+        require 'pry'
+        binding.pry
+        puts "pid"
+      end
       if @options.opts[:daemon]
         @daemon.fork
       end
