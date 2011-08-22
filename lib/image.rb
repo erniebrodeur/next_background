@@ -1,7 +1,4 @@
-require 'digest/md5'
-require 'mini_magick'
-
-module ImageList
+module NextBackground
   class Image
     attr_accessor :filename
     attr_accessor :width
