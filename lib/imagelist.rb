@@ -1,7 +1,4 @@
-require 'yaml'
-require 'mini_magick'
-require './image.rb'
-module ImageList
+module NextBackground
   class FileError < StandardError
   end
 
