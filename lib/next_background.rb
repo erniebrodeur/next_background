@@ -1,5 +1,12 @@
 #!/usr/bin/ruby
 
+# generics
+require 'trollop'
+require 'yaml'
+require 'mini_magick'
+require 'digest/md5'
+
+# internals
 require 'randomfile'
 require 'cli'
 require 'options'

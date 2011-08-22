@@ -9,9 +9,8 @@ module NextBackground
       @options = NextBackground::Options.new
       @daemon = NextBackground::Daemon.new(method(:run_once))
 
-      @dir = NextBackground::RandomFile.new
-      @dir.link = "/home/ebrodeur/Pictures/single"
-      @dir.dir = "/home/ebrodeur/Pictures/1920x1080"
+      @randomfile = NextBackground::RandomFile.new
+      @randomfile.link = "/home/ebrodeur/Pictures/single"
     end
 
     #
@@ -51,7 +50,7 @@ module NextBackground
     # yet.
     # TODO: refactor this somewhere better.
     def run_once
-      @dir.set_link
+      @randomfile.set
       %x[xfdesktop --reload]
     end
   end
