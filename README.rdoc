@@ -10,14 +10,23 @@ At the moment this script has some severe limitations:
 * Only works on my system (see the first entry).
 
 == Current
-The .2 branch is a functional branch, but is not what I would call a useful one.  Instead it works
-perfectly well on my desktop (and yours too if you modifiy a few values or wait for .3).
+* Still very limited functionallity, I need to lift out the configurations so it can be more useful to more people then just me.
 
-== The Road .3
-The goal of .3 is to release a gem that can be executed with 'gem install next_background.'  
+== The Road map
+I hate version numbers, they never work for me.  This is a short list of the major points I want to add before I consider
+this project 'public' worthy.
 
-As such I am not adding any real features until I can get the current ones properly spec'ed 
-and configurable.
+* Full Configuration support
+* Mulltiple Monitor (dual and triple)
+* Configuration file and CLI
+
+== ChangLog
+=== 0.3
+* Will now run through the file list and cache the values of various points, including md5 hash, WxH, ratio, and a few others.
+* The generated list will get stored in a file in ~/.cache, this will aleviate long startup times.
+* Stripped out all of the dir tricks I was using, now randomfiles are pulled from the new ImageList class, hardcoded to search for files with 16:9 ratio
+* Added two new classes to support the above, Image and ImageList.
+* ImageList supports a min amount of deduplication in the form that it will reconize a hash with multiple files and track them.
 
 == Copyright
 
