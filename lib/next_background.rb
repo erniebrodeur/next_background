@@ -8,6 +8,7 @@ require 'digest/md5'
 require 'daemons'
 
 # internals
+require 'configuration'
 require 'randomfile'
 require 'cli'
 require 'clioptions'
