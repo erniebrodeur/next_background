@@ -1,13 +1,44 @@
 # next_background
 This gem is to offer a WM agnostic solution to changing the wallpaper, either via CLI or daemon.
 
+Usage
+=====
+
+Installation
+------------
+Currently, I don't have it producing a gem, though you can create one if you know how:) 
+
+As such, just to **clone** do this:
+
+```
+git clone https://erniebrodeur@github.com/erniebrodeur/next_background.git
+```
+To generate a **config** file run it one time, this also **changes**:
+
+```
+next_background\bin\next_background -r
+```
+
+After that you can edit the config file in *~/.config/next_background/config.yaml* to change the settings you see.  The mask is the **GLOB** pattern you want to use to find images.  It will not choke on non-images so you do not need to worry about that.
+
+Want it to run in **daemon** mode?
+
+```
+next_background\bin\next_background -d
+```
+
+Why isn't it changing your background?  
+Make sure to **change** xfce4 to point to the **link** file for its desktop, all this app does is update link file.  You have to configure the WM to use it as the background.
+
 Notes
 =====
 At the moment this script has some severe limitations:
+
 * Limited command line options.
 * Very limited configuration
 * Only works on XFCE4
 * Only selects images that match a 16:9 ratio.
+* Changes every 10 seconds for that oh so ADHD feeling.
 
 Current
 =======

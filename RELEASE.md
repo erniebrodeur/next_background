@@ -1,5 +1,9 @@
 # Release Notes:
 
+0.3.2
+=====
+* Cleaned up the documentation and convered from rdoc to markdown, silly github.
+
 0.3.1
 =====
 * Added a configuration file, this resides in ~/.config/next\_background/config.yaml and contains a few
