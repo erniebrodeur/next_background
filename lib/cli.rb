@@ -10,7 +10,7 @@ module NextBackground
       @daemon = NextBackground::Daemon.new(method(:run_once))
 
       @randomfile = NextBackground::RandomFile.new
-      @randomfile.link = "/home/ebrodeur/Pictures/single"
+      @randomfile.link = Settings[:link_file]
     end
 
     #
