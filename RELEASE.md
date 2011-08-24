@@ -1,8 +1,10 @@
 # Release Notes:
 
-Pending changes for: 0.3.2
+Pending changes, (in git but not tagged with a version)
 =====
 * Cleaned up the documentation and convered from rdoc to markdown, silly github.
+* Added a timeout value to the application to manually control the timeout duration.
+* Added deep pid checking.  Instead of it failing and expecting you to clean up the pid file, it will now delete it and fork anyway. 
 
 0.3.1
 =====

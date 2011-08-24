@@ -6,6 +6,7 @@ require 'yaml'
 require 'mini_magick'
 require 'digest/md5'
 require 'daemons'
+require 'sys/proctable'
 
 # internals
 require 'configuration'

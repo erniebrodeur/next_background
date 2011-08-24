@@ -42,7 +42,15 @@ module NextBackground
           end
           @daemon.fork
         else
-          puts "next_background is already running."
+          # TODO: put this check in daemon, but a lot of this should be moved inside there as well.
+          # TODO: as well as lift this variable into the config.
+          if !Sys::ProcTable.ps[open("/home/ebrodeur/.cache/next_background/next_background.pid").read.to_i]
+            puts "Pidfile exists, but pid is not running, starting anyway."
+            FileUtils.rm "/home/ebrodeur/.cache/next_background/next_background.pid"
+            @daemon.fork
+          else
+            puts "next_background is already running, try next_background -k to kill the daemon."
+          end
         end
       end
 

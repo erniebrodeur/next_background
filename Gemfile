@@ -7,6 +7,7 @@ gem 'trollop'
 gem 'daemons'
 gem 'mini_magick'
 gem 'rack'
+gem 'sys-proctable'
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
