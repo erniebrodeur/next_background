@@ -4,29 +4,21 @@ This gem is to offer a WM agnostic solution to changing the wallpaper, either vi
 == Notes
 
 At the moment this script has some severe limitations:
-* Hard coded values everywhere.
 * Limited command line options.
 * Very limited configuration
-* Only works on my system (see the first entry).
+* Only works on XFCE4
+* Only selects images that match a 16:9 ratio.
 
 == Current
-* Still very limited functionallity, I need to lift out the configurations so it can be more useful to more people then just me.
+I am happy to say that in theory, this could work for you just fine. Given you run xfce4 and use a 16:9 monitor.
+With that said, it should work juuuusst fine;) .
 
 == The Road map
-I hate version numbers, they never work for me.  This is a short list of the major points I want to add before I consider
-this project 'public' worthy.
+I hate version numbers, they never work for me.  This is a short list of the major points I want to add before I consider this project 'public' worthy.  This is a short list of things I think need to be done before this is ready for public consumption.
 
-* Full Configuration support
 * Mulltiple Monitor (dual and triple)
-* Configuration file and CLI
-
-== ChangLog
-=== 0.3
-* Will now run through the file list and cache the values of various points, including md5 hash, WxH, ratio, and a few others.
-* The generated list will get stored in a file in ~/.cache, this will aleviate long startup times.
-* Stripped out all of the dir tricks I was using, now randomfiles are pulled from the new ImageList class, hardcoded to search for files with 16:9 ratio
-* Added two new classes to support the above, Image and ImageList.
-* ImageList supports a min amount of deduplication in the form that it will reconize a hash with multiple files and track them.
+* Multiple WM's supported by a plugin model(this,in theory should allow it to work on Mac and Win with min work).
+* Proper documentation and specs
 
 == Copyright
 
