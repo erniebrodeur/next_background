@@ -1,6 +1,6 @@
 # Release Notes:
 
-0.3.2
+Pending changes for: 0.3.2
 =====
 * Cleaned up the documentation and convered from rdoc to markdown, silly github.
 
