@@ -6,7 +6,7 @@ module NextBackground
   class CLI
 
     def initialize
-      @options = NextBackground::Options.new
+      @clioptions = NextBackground::CliOptions.new
       @daemon = NextBackground::Daemon.new(method(:run_once))
 
       @randomfile = NextBackground::RandomFile.new
@@ -17,9 +17,9 @@ module NextBackground
     # This is the entry point for the application.  Once a CLI has been initialized, 
     # this method will run all logic and is effectively the main loop.
     def run
-      @options.parse
+      @clioptions.parse
  
-      if @options.opts[:kill]
+      if @clioptions.opts[:kill]
         if @daemon.pid
           puts "killing #{@daemon.pid}"
           %x[kill #{@daemon.pid}]
@@ -27,10 +27,10 @@ module NextBackground
           puts "next_background is not running."
         end
       end
-      if @options.opts[:pid]
+      if @clioptions.opts[:pid]
         puts @daemon.pid
       end
-      if @options.opts[:daemon]
+      if @clioptions.opts[:daemon]
         if !@daemon.pid
           @daemon.fork
         else
@@ -38,7 +38,7 @@ module NextBackground
         end
       end
 
-      if @options.opts[:runonce]
+      if @clioptions.opts[:runonce]
         run_once
       end
 

@@ -2,7 +2,7 @@ module NextBackground
   # 
   # This class will do the actual command line parsing and in the future also 
   # contain the config file parsing instructions.
-  class Options
+  class CliOptions
     #
     # the hash containing the final results of our option parsing.
     attr_accessor :opts

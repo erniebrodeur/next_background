@@ -10,7 +10,7 @@ require 'daemons'
 # internals
 require 'randomfile'
 require 'cli'
-require 'options'
+require 'clioptions'
 require 'daemon'
 require 'image'
 require 'imagelist'
