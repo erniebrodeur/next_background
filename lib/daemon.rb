@@ -27,7 +27,7 @@ module NextBackground
       @options = {
         :app_name => "next_background",
         :dir_mode => :normal,
-        :dir => "~/.cache/"
+        :dir => "~/.cache/next_background/"
       }
     end
 

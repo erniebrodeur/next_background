@@ -32,6 +32,10 @@ module NextBackground
       end
       if @clioptions.opts[:daemon]
         if !@daemon.pid
+          # make sure the cache dir exists, or daemon will fail silently.
+          if !Dir.exists? File.expand_path Settings[:cache_dir]
+            FileUtils.mkdir_p Settings[:cache_dir]
+          end
           @daemon.fork
         else
           puts "next_background is already running."

@@ -56,7 +56,8 @@ module NextBackground
       @main[:link_file] = File.expand_path "~/Pictures/single"
       @main[:directory] = File.expand_path "~/Pictures"
       @main[:mask] = "**/"
-      @main[:cache_file] = File.expand_path "~/.cache/next_background_cache.yaml"
+      @main[:cache_dir]  = File.expand_path "~/.cache/"
+      @main[:cache_file] = File.expand_path "~/.cache/next_background/cache.yaml"
       self.save
     end
 
