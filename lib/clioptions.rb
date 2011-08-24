@@ -11,7 +11,6 @@ module NextBackground
     # the help banner
     attr_reader :banner
 
-
     private
     #
     # the parser object itself
@@ -20,12 +19,14 @@ module NextBackground
     public
     #
     # initialize our option list.
+    # Don't set any defaults here, instead set them in configuration, it is 'lower' in the settings stack.
     def initialize
       @banner = "Help banner goes here."
       @parser = Trollop::Parser.new do
         opt :daemon,  "kick into daemon mode."
         opt :runonce, "change the links one time."
         opt :kill,    "kill the running daemon (if their is one)."
+        opt :timeout, "How often (in seconds) to change the background links.", :type => :int
         opt :pid,     "return the PID of a running daemon (if there is one)."
       end
     end

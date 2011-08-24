@@ -30,6 +30,10 @@ module NextBackground
       if @clioptions.opts[:pid]
         puts @daemon.pid
       end
+      if @clioptions.opts[:timeout]
+        Settings[:timeout]
+      end
+
       if @clioptions.opts[:daemon]
         if !@daemon.pid
           # make sure the cache dir exists, or daemon will fail silently.

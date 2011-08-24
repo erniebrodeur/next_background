@@ -51,7 +51,7 @@ module NextBackground
       Daemons.daemonize @options
       loop do
         update_method.call
-        sleep 10
+        sleep Settings[:timeout]
       end
     end
   end

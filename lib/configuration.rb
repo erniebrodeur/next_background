@@ -51,13 +51,16 @@ module NextBackground
     end
 
     # generate a new set of defaults that should work in most cases and save them to the config file.
-    # Else how can a user tweak them later?
+    # Else how can a user tweak them later?  Since our settings can be on the fly, this is where
+    # I store failsafe settings.
+    # TODO: lift just this hash to a different file, make it easier for me to add 'defaults'.
     def load_defaults
-      @main[:link_file] = File.expand_path "~/Pictures/single"
-      @main[:directory] = File.expand_path "~/Pictures"
-      @main[:mask] = "**/"
-      @main[:cache_dir]  = File.expand_path "~/.cache/"
-      @main[:cache_file] = File.expand_path "~/.cache/next_background/cache.yaml"
+      @main[:link_file]     = File.expand_path "~/Pictures/single"
+      @main[:directory]     = File.expand_path "~/Pictures"
+      @main[:mask]          = "**/*"
+      @main[:cache_dir]     = File.expand_path "~/.cache/"
+      @main[:cache_file]    = File.expand_path "~/.cache/next_background/cache.yaml"
+      @main[:timeout]       = 10
       self.save
     end
 
