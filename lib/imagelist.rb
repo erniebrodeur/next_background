@@ -3,36 +3,27 @@ module NextBackground
   end
 
   class ImageList
-    # the dir we glob from
-    attr_accessor :dir
-    # the file mask used to glob
-    attr_accessor :mask
     # the main hash table of image objects
     attr_accessor :list
-    # our cache file
-    attr_accessor :cache_file
 
     def initialize
-      # bit of a catch 22 here, really you shouldn't edit this because it would never know.
-      # the value in the save file gets completely ignored as well.
-      @cache_file = "/home/ebrodeur/.cache/image_list.yaml"
-      @dir = "/home/ebrodeur/Pictures/"
-      @mask = "**/*"
+      Settings[:direcotry] = "/home/ebrodeur/Pictures/"
+      Settings[:mask] = "**/*"
       @list = {}
-      if File.exists? @cache_file
-        puts "cache exists in #{@cache_file}, loading."
+      if File.exists? Settings[:cache_file]
+        puts "cache exists in #{Settings[:cache_file]}, loading."
         load_cache
       else
-        puts "cache doesn't exist, generating from #{dir}#{mask}"
+        puts "cache doesn't exist, generating from #{Settings[:dir]}#{Settings[:mask]}"
         generate
-        puts "saving #{@list.size} image(s) to #{@cache_file}"
+        puts "saving #{@list.size} image(s) to #{Settings[:cache_file]}"
         save_cache
       end
     end
 
     # generate a new cache file
     def generate
-      files = Dir.glob "#{@dir}#{@mask}"
+      files = Dir.glob "#{Settings[:direcotry]}#{Settings[:mask]}"
       files.each do |f|
         if (!File.directory?(f)  && !File.symlink?(f))
           puts "processing #{f}"
@@ -55,15 +46,12 @@ module NextBackground
 
     # save the current list to the cache
     def save_cache
-      open("/home/ebrodeur/.cache/image_list.yaml", 'w').write self.to_yaml
+      open(Settings[:cache_file], 'w').write @list.to_yaml
     end
 
-    # load the cache file, overwriting the current settings
+    # load the cache file.
     def load_cache
-      tmp = YAML::load_file @cache_file
-      @dir = tmp.dir
-      @mask = tmp.mask
-      @list = tmp.list
+      @list = YAML::load_file Settings[:cache_file]
     end
 
     # return a new list with the ratio provided, must be float (for now) with a 

@@ -54,6 +54,9 @@ module NextBackground
     # Else how can a user tweak them later?
     def load_defaults
       @main[:link_file] = File.expand_path "~/Pictures/single"
+      @main[:directory] = File.expand_path "~/Pictures"
+      @main[:mask] = "**/"
+      @main[:cache_file] = File.expand_path "~/.cache/next_background_cache.yaml"
       self.save
     end
 
