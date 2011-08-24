@@ -38,11 +38,10 @@ module NextBackground
       @main = {}
       @config_directory = File.expand_path "~/.config/next_background"
       @file = "#{@config_directory}/config.yaml"
-      if File.exists? @file
-        self.load
-      end
+      self.load
     end
 
+    # Checks for the existance of the directory before it saves.
     def save
       if !Dir.exists? @config_directory
         FileUtils.mkdir_p @config_directory
@@ -51,8 +50,20 @@ module NextBackground
       open(@file, 'w').write @main.to_yaml
     end
 
+    # generate a new set of defaults that should work in most cases and save them to the config file.
+    # Else how can a user tweak them later?
+    def load_defaults
+      @main[:link_file] = File.expand_path "~/Pictures/single"
+      self.save
+    end
+
+    # Will attempt to load the stored configuration, if it doesnt exist will load defaults.
     def load
-      @main = YAML::load_file @file
+      if File.exists? @file
+        @main = YAML::load_file @file
+      else
+        self.load_defaults
+      end
     end
   end
 end
