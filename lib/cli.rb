@@ -44,6 +44,7 @@ module NextBackground
         else
           # TODO: put this check in daemon, but a lot of this should be moved inside there as well.
           # TODO: as well as lift this variable into the config.
+          # TODO: Apparently, I can't find the pid via Proctable.ps[pid] even when I can see it a proctree crawl, may be neccessary to make this crawl the tree.
           if !Sys::ProcTable.ps[open("/home/ebrodeur/.cache/next_background/next_background.pid").read.to_i]
             puts "Pidfile exists, but pid is not running, starting anyway."
             FileUtils.rm "/home/ebrodeur/.cache/next_background/next_background.pid"
