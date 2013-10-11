@@ -1,10 +1,13 @@
 #!/usr/bin/env ruby
 
 require 'next_background'
+require 'bini'
 
+Bini.long_name = "next_background"
 include NextBackground
+
 example = Background.new({
-		link_file: "/home/ebrodeur/Pictures/example"
+		link_file: "/home/ebrodeur/Pictures/example",
 		directory: "/home/ebrodeur/Pictures/"
 })
 
