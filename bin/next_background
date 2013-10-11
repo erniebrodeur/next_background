@@ -6,27 +6,20 @@ require 'bini'
 Bini.long_name = "next_background"
 include NextBackground
 
-example = Background.new({
-		link_file: "/home/ebrodeur/Pictures/example",
-		directory: "/home/ebrodeur/Pictures/"
-})
-
-left = Background.new({
+add_job Background.new({
 		link_file: "/home/ebrodeur/Pictures/left",
 		directory: "/home/ebrodeur/Pictures/2540x1440"
 })
-middle = Background.new({
+
+add_job Background.new({
 		link_file: "/home/ebrodeur/Pictures/middle",
 		directory: "/home/ebrodeur/Pictures/2540x1440"
 })
-right = Background.new({
+
+add_job Background.new({
 		link_file: "/home/ebrodeur/Pictures/right",
 		directory: "/home/ebrodeur/Pictures/portrait"
 })
 
+run_jobs
 
-puts left.link_random_file
-puts middle.link_random_file
-puts right.link_random_file
-
-`xfdesktop --reload`
