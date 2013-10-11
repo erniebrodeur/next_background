@@ -3,10 +3,27 @@
 require 'next_background'
 
 include NextBackground
+example = Background.new({
+		link_file: "/home/ebrodeur/Pictures/example"
+		directory: "/home/ebrodeur/Pictures/"
+})
 
 left = Background.new({
 		link_file: "/home/ebrodeur/Pictures/left",
-		directory: "/home/ebrodeur/Pictures/2560x1024"
-	})
+		directory: "/home/ebrodeur/Pictures/2540x1440"
+})
+middle = Background.new({
+		link_file: "/home/ebrodeur/Pictures/middle",
+		directory: "/home/ebrodeur/Pictures/2540x1440"
+})
+right = Background.new({
+		link_file: "/home/ebrodeur/Pictures/right",
+		directory: "/home/ebrodeur/Pictures/portrait"
+})
 
-puts left
+
+puts left.link_random_file
+puts middle.link_random_file
+puts right.link_random_file
+
+`xfdesktop --reload`

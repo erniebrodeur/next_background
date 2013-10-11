@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = NextBackground::VERSION
   spec.authors       = ["Ernie Brodeur"]
   spec.email         = ["ebrodeur@ujami.net"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = "A description."
+  spec.summary       = "A slightly longer description."
   spec.homepage      = ""
   spec.license       = "MIT"
 
