@@ -1,42 +1,92 @@
-GEM
-  remote: http://rubygems.org/
+PATH
+  remote: .
   specs:
-    daemons (1.1.4)
-    diff-lcs (1.1.2)
-    git (1.2.5)
-    jeweler (1.5.2)
-      bundler (~> 1.0.0)
-      git (>= 1.2.5)
-      rake
-    mini_magick (3.3)
-      subexec (~> 0.1.0)
-    rack (1.3.2)
-    rake (0.9.2)
-    rcov (0.9.10)
-    rspec (2.3.0)
-      rspec-core (~> 2.3.0)
-      rspec-expectations (~> 2.3.0)
-      rspec-mocks (~> 2.3.0)
-    rspec-core (2.3.1)
-    rspec-expectations (2.3.0)
-      diff-lcs (~> 1.1.2)
-    rspec-mocks (2.3.0)
-    subexec (0.1.0)
-    sys-proctable (0.9.1)
-    trollop (1.16.2)
-    yard (0.7.2)
+    next_background (0.0.1)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    bini (0.7.0)
+      sys-proctable
+    coderay (1.0.9)
+    diff-lcs (1.2.4)
+    ffi (1.9.0)
+    formatador (0.2.4)
+    growl (1.0.3)
+    guard (1.8.3)
+      formatador (>= 0.2.4)
+      listen (~> 1.3)
+      lumberjack (>= 1.0.2)
+      pry (>= 0.9.10)
+      thor (>= 0.14.6)
+    guard-bundler (1.0.0)
+      bundler (~> 1.0)
+      guard (~> 1.1)
+    guard-shell (0.5.1)
+      guard (>= 1.1.0)
+    libnotify (0.8.2)
+      ffi (>= 1.0.11)
+    listen (1.3.1)
+      rb-fsevent (>= 0.9.3)
+      rb-inotify (>= 0.9)
+      rb-kqueue (>= 0.2)
+    lumberjack (1.0.4)
+    method_source (0.8.2)
+    multi_json (1.8.1)
+    pry (0.9.12.2)
+      coderay (~> 1.0.5)
+      method_source (~> 0.8)
+      slop (~> 3.4)
+    rake (10.1.0)
+    rb-fchange (0.0.6)
+      ffi
+    rb-fsevent (0.9.3)
+    rb-inotify (0.9.2)
+      ffi (>= 0.5.0)
+    rb-kqueue (0.2.0)
+      ffi (>= 0.5.0)
+    rspec (2.14.1)
+      rspec-core (~> 2.14.0)
+      rspec-expectations (~> 2.14.0)
+      rspec-mocks (~> 2.14.0)
+    rspec-core (2.14.5)
+    rspec-expectations (2.14.3)
+      diff-lcs (>= 1.1.3, < 2.0)
+    rspec-mocks (2.14.3)
+    simplecov (0.7.1)
+      multi_json (~> 1.0)
+      simplecov-html (~> 0.7.1)
+    simplecov-html (0.7.1)
+    simplecov-rcov (0.2.3)
+      simplecov (>= 0.4.1)
+    slop (3.4.6)
+    sys-proctable (0.9.3)
+    thor (0.18.1)
+    yard (0.8.7.2)
+    yard-dm (0.1.1)
+    yard-sinatra (1.0.0)
+      yard (~> 0.7)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (~> 1.0.0)
-  daemons
-  jeweler (~> 1.5.2)
-  mini_magick
-  rack
-  rcov
-  rspec (~> 2.3.0)
-  sys-proctable
-  trollop
+  bini
+  bundler (~> 1.3)
+  growl
+  guard
+  guard-bundler
+  guard-shell
+  libnotify
+  next_background!
+  pry
+  rake
+  rb-fchange
+  rb-fsevent
+  rb-inotify (~> 0.9.0)
+  rspec
+  simplecov
+  simplecov-rcov
   yard
+  yard-dm
+  yard-sinatra

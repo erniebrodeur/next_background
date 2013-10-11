@@ -1,9 +1,12 @@
-#!/usr/bin/ruby
+#!/usr/bin/env ruby
 
-lib_dir = File.join(File.dirname(__FILE__), '..', 'lib')
-$LOAD_PATH.unshift lib_dir if File.directory?(lib_dir) && !$LOAD_PATH.include?(lib_dir)
+require 'next_background'
 
-require "next_background"
+include NextBackground
 
-@app = NextBackground::CLI.new
-@app.run
+left = Background.new({
+		link_file: "/home/ebrodeur/Pictures/left",
+		directory: "/home/ebrodeur/Pictures/2560x1024"
+	})
+
+puts left
