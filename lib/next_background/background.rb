@@ -23,7 +23,7 @@ module NextBackground
     def random_file
       @@random ||= Random.new
 
-      return files[@@random.rand(0..files.count)]
+      return files[@@random.rand(0..files.count-1)]
     end
 
     def link_random_file
@@ -34,7 +34,6 @@ module NextBackground
           FileUtils.rm link_file
         end
       end
-
 
       FileUtils.ln_s random_file, link_file
 

@@ -13,11 +13,12 @@ module NextBackground
   end
 
   def run_jobs
-    Jobs.each do |job|
-      job.link_random_file
+    while true
+      Jobs.each do |job|
+        job.link_random_file
+      end
+      `xfdesktop --reload`
+      sleep 1
     end
-
-    `xfdesktop --reload`
-    sleep 10
   end
 end
