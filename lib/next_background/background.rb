@@ -1,23 +1,15 @@
 module NextBackground
   class Background
     attr_accessor :link_file
-    attr_accessor :directory
+    attr_accessor :method
 
     def files
-    	@@cache ||= Bini::Sash.new options:{file:"#{Bini.cache_dir}/files.json"}
-
-    	# we don't have shit.  ain't shit to be had.
-    	if !@@cache[directory]
-    		@@cache[directory] = Dir.glob File.join(directory, "**", "*")
-    		@@cache.save
-    	end
-
-    	@@cache[directory]
+      send "by_#{method.keys.first}".to_sym, method.values
     end
 
     def initialize(params = {})
       @link_file = params[:link_file] if params[:link_file]
-      @directory = params[:directory] if params[:directory]
+      @method = params[:method] if params[:method]
     end
 
     def random_file
@@ -40,5 +32,21 @@ module NextBackground
       return true
     end
 
+    def by_directory(value)
+      return directory(value)
+    end
+
+    private
+    def directory(dir)
+      @@cache ||= Hash.new
+
+      # we don't have shit.  ain't shit to be had.
+      if !@@cache[dir]
+        @@cache[dir] = Dir.glob File.join(dir, "**", "*")
+      end
+
+      return @@cache[dir]
+    end
   end
 end
+

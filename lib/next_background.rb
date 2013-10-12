@@ -1,3 +1,5 @@
+require 'bini'
+
 require "next_background/background"
 require "next_background/version"
 
@@ -18,7 +20,7 @@ module NextBackground
         job.link_random_file
       end
       `xfdesktop --reload`
-      sleep 1
+      sleep 10
     end
   end
 end
