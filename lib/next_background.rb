@@ -1,4 +1,5 @@
 require 'bini'
+require 'mini_magick'
 
 require "next_background/background"
 require "next_background/version"

@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gemspec
 
 gem 'bini'
+gem 'mini_magick'
 
 group :development do
   gem "pry"

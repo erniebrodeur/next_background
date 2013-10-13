@@ -1,37 +1,27 @@
 #!/usr/bin/env ruby
 
 require 'next_background'
-
 Bini.long_name = "next_background"
 include NextBackground
 
-
-add_job Background.new({
-	link_file: "/home/ebrodeur/Pictures/example",
-	method: {
-		directory: "/home/ebrodeur/Pictures/"
-	}
-})
-
 add_job Background.new({
 	link_file: "/home/ebrodeur/Pictures/left",
-	method: {
-		directory: "/home/ebrodeur/Pictures/2540x1440"
-	}
+	directory: "/home/ebrodeur/Pictures/2540x1440"
 })
 
 add_job Background.new({
 	link_file: "/home/ebrodeur/Pictures/middle",
-	method: {
-		directory: "/home/ebrodeur/Pictures/2540x1440"
-	}
+	directory: "/home/ebrodeur/Pictures/2540x1440"
 })
 
 add_job Background.new({
 	link_file: "/home/ebrodeur/Pictures/right",
+	directory: "/home/ebrodeur/Pictures/portrait",
 	method: {
-		directory: "/home/ebrodeur/Pictures/portrait"
+		ratio: 0.56
 	}
 })
 
 run_jobs
+
+
