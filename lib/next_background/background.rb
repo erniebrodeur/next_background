@@ -16,6 +16,13 @@ module NextBackground
       @link_file = params[:link_file] if params[:link_file]
       @directory = params[:directory] if params[:directory]
       @method = params[:method] if params[:method]
+
+      # we only want to setup @@cache one time no matter what since load is
+      # destructive.
+      unless NextBackground::Background.class_variables.include? :@@cache
+        @@cache = Bini::Sash.new(options:{file:File.join(Bini.cache_dir,"files.json")})
+        @@cache.load #try a load.
+      end
     end
 
     def random_file
@@ -53,16 +60,19 @@ module NextBackground
 
     private
     def cache_dir
-      @@cache ||= Hash.new
-
       # we don't have shit.  ain't shit to be had.
       if !@@cache[directory]
-        print "Caching directory: #{directory} . . . "
+        puts "Caching directory: #{directory}"
         @@cache[directory] = {}
         Dir.glob(File.join(directory, "**", "*")).each do |file|
           next unless File.file? file
-
-          image = MiniMagick::Image.open file
+          print "."
+          begin
+            image = MiniMagick::Image.open file
+          rescue
+            puts "\nSkipping #{file}."
+            next
+          end
           height, width, type = image["%h %w %m"].split(" ")
           height = height.to_f
           width = width.to_f
@@ -77,9 +87,10 @@ module NextBackground
           }
 
         end
-        puts "finished."
+        puts "Finished caching #{directory}, found #{files.count} images."
       end
 
+      @@cache.save
       return @@cache[directory]
     end
   end

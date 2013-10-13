@@ -6,17 +6,23 @@ include NextBackground
 
 add_job Background.new({
 	link_file: "/home/ebrodeur/Pictures/left",
-	directory: "/home/ebrodeur/Pictures/2540x1440"
+	directory: "/home/ebrodeur/Pictures/wallbase.cc",
+	method: {
+		ratio: 1.77
+	}
 })
 
 add_job Background.new({
 	link_file: "/home/ebrodeur/Pictures/middle",
-	directory: "/home/ebrodeur/Pictures/2540x1440"
+	directory: "/home/ebrodeur/Pictures/wallbase.cc",
+	method: {
+		ratio: 1.77
+	}
 })
 
 add_job Background.new({
 	link_file: "/home/ebrodeur/Pictures/right",
-	directory: "/home/ebrodeur/Pictures/portrait",
+	directory: "/home/ebrodeur/Pictures/wallbase.cc",
 	method: {
 		ratio: 0.56
 	}

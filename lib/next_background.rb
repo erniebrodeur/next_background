@@ -12,6 +12,7 @@ module NextBackground
   def add_job(background)
     raise ArgumentError unless background.kind_of? NextBackground::Background
 
+    puts "Found #{background.files.count} images for #{background.link_file} in #{background.directory}."
     Jobs.push background
   end
 
@@ -21,6 +22,7 @@ module NextBackground
         job.link_random_file
       end
       `xfdesktop --reload`
+
       sleep 10
     end
   end
